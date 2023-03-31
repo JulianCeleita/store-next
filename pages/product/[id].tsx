@@ -1,15 +1,15 @@
 import { useRouter } from "next/router";
 import { Navbar } from "@/components";
 
-const Item = () => {
+const Id = () => {
   const {
-    query: { item },
+    query: { id },
   } = useRouter();
   return (
     <>
       <Navbar />
-      <div>Item: {item} </div>
+      <div>Id: {id} </div>
     </>
   );
 };
-export default Item;
+export default Id;
