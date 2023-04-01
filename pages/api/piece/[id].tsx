@@ -1,19 +1,14 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import DB from "@database";
+import Database from "@database";
 
-const allPieces = async (
-  request: NextApiRequest,
-  response: NextApiResponse
-) => {
-  const db = new DB();
+const allPieces = async (req: NextApiRequest, res: NextApiResponse) => {
+  const database = new Database();
 
-    const id = request.query.id
+  const id = req.query.id;
 
-  const entry = await db.getById(id as string);
+  const piece = await database.getById(id as string);
 
-  response.statusCode = 200;
-  response.setHeader("Content-type", "application/json");
-  response.end(JSON.stringify({ data: entry }));
+  res.status(200).json(piece);
 };
 
 export default allPieces;

@@ -1,17 +1,17 @@
 import { IncomingMessage, ServerResponse } from "http";
-import DB from "@database";
+import Database from "@database";
 
 const allPieces = async (
-  request: IncomingMessage,
-  response: ServerResponse
+  req: IncomingMessage,
+  res: ServerResponse
 ) => {
-  const db = new DB();
-  const allEntries = await db.getAll();
+  const database = new Database();
+  const allEntries = await database.getAll();
   const length = allEntries.length;
 
-  response.statusCode = 200;
-  response.setHeader("Content-type", "application/json");
-  response.end(JSON.stringify({ data: allEntries, length }));
+  res.statusCode = 200;
+  res.setHeader("Content-type", "application/json");
+  res.end(JSON.stringify({ data: allEntries, length }));
 };
 
 export default allPieces;

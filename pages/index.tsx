@@ -1,15 +1,27 @@
-import { Navbar } from "@/components"
+import { Navbar } from "@/components";
+import { useEffect, useState } from "react";
 
 const Home = () => {
-  return (
-    <>
-    <Navbar/>
-    <p>THIS IS THE NEW HOME</p>
-    </>
-  )
-}
-export default Home
+  const [productList, setProductList] = useState([]);
 
+  useEffect(() => {
+    window
+      .fetch('/api/piece')
+      .then((response) => response.json())
+      .then(console.log);
+  }, []);
+
+  return (
+    <div>
+      <Navbar/>
+      <div>THIS IS THE NEW HOME</div>
+      {/* {productList.map((product)=> (
+        <div>{product.name}</div>
+      ))} */}
+    </div>
+  );
+};
+export default Home;
 
 /* import React from 'react'
 import Link from 'next/link'
