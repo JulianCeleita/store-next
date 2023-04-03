@@ -7,7 +7,6 @@ const Id = () => {
   } = useRouter();
   return (
     <>
-      <Navbar />
       <div>Id: {id} </div>
     </>
   );
