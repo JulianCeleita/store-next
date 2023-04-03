@@ -1,8 +1,7 @@
 import React from 'react'
-import fetch from 'isomorphic-unfetch'
-import ProductSummary from '@components/ProductSummary/ProductSummary'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { Layout } from '@/components/Layout'
+import ProductSummary from '@/components/ProductSummary/ProductSummary'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const response = await fetch('https://platzi-avo.vercel.app/api/avo')

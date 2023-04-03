@@ -1,10 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
 import { GetStaticProps } from 'next'
-import fetch from 'isomorphic-unfetch'
-import KawaiiHeader from '@components/KawaiiHeader/KawaiiHeader'
-import ProductList from '@components/ProductList/ProductList'
 import { Layout } from '@/components/Layout'
+import KawaiiHeader from '@/components/KawaiiHeader/KawaiiHeader'
+import ProductList from '@/components/ProductList/ProductList'
 
 export const getStaticProps: GetStaticProps = async () => {
   const response = await fetch('https://platzi-avo.vercel.app/api/avo')
@@ -21,11 +20,6 @@ const HomePage = ({ productList }: { productList: TProduct[] }) => {
   return (
     <Layout>
       <KawaiiHeader />
-      <section>
-        <Link href="/yes-or-no">
-          <a>¿Deberia comer un avo hoy?</a>
-        </Link>
-      </section>
       <ProductList products={productList} />
       <style jsx>{`
         section {

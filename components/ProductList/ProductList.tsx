@@ -7,15 +7,18 @@ type ProductListProps = {
   products: TProduct[]
 }
 
+const renderImage = (src: string) => () => <Image alt="Image not found" src={src} width={333} height={333} />
+const renderMeta = (content: React.ReactNode) => () => <Card.Meta style={{ color: 'dimgray' }}>{content}</Card.Meta>
+
 const mapProductsToCards = (products: TProduct[]) =>
   products.map(({ name, id, price, image }) => (
     <Link key={id} href={`/product/${id}`} passHref>
       <Card
         as="a"
         header={name}
-        image={{ children: <Image src={image} width={333} height={333} /> }}
+        image={{ children: renderImage(image) }}
         meta={{
-          children: <Card.Meta style={{ color: 'dimgray' }}>{price}</Card.Meta>,
+          children: renderMeta(price)
         }}
       />
     </Link>
