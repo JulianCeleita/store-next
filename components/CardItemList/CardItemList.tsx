@@ -35,7 +35,7 @@ const CartItemList = ({
         header: (
           <Item.Header>
             <Link href={`/product/${id}/`}>
-              <a>{name}</a>
+              {name}
             </Link>
           </Item.Header>
         ),
