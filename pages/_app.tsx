@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Layout } from "../components/Layout";
-import CartProvider from "../components/Cart";
+import CartProvider from "../components/store/Cart";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -16,14 +16,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/store.ico" />
       </Head>
       <CartProvider>
-        <Component {...pageProps} />
+        {/* TODO pending modify LAYOUT */}
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </CartProvider>
     </>
   );
-}
-
-{
-  /* <Layout>
-  <Component {...pageProps} />
-</Layout> */
 }
