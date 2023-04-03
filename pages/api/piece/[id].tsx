@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Database from "@database";
 
-const allPieces = async (req: NextApiRequest, res: NextApiResponse) => {
+const PieceDetail = async (req: NextApiRequest, res: NextApiResponse) => {
   const database = new Database();
 
   const id = req.query.id;
@@ -11,4 +11,4 @@ const allPieces = async (req: NextApiRequest, res: NextApiResponse) => {
   res.status(200).json(piece);
 };
 
-export default allPieces;
+export default PieceDetail;
