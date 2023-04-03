@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar } from '.';
+import { Navbar, Footer } from '.';
 
 type Props = {
   children: React.ReactNode;
@@ -8,11 +8,9 @@ type Props = {
 export const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       {children}
-      <footer>
-        <p>This is my footer</p>
-      </footer>
+      <Footer/>
     </>
   )
 }
